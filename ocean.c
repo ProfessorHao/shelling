@@ -12,6 +12,11 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+#include "funs.h"
+
+
+
+
 
 int main()
 {
@@ -35,6 +40,17 @@ int main()
         //printf("%s",buffed);
         
         // If the command == help (keyword) -> display message
+
+        //char **arrayOfTokens, str[] = buffed;
+        //int numberOfTokens;
+        
+        //char **arrayOfTokens, str[] = buffed; (Doesn't work) Why? Is it the null terminator or newline?
+        char *stringy = buffed;
+        printf("We found the buffed string = %s\n",stringy);
+        
+        char **arrayOfTokens, str[] = "ls -l file";
+        int numberOfTokens = getTokens(str, &arrayOfTokens);
+
         if(strcmp(buffed,keys[0]) == 0)
         {
             printf("exit - Exit Shell\n");
