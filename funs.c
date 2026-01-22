@@ -24,14 +24,22 @@ int getTokens(char *s, char ***args)
     //Use strtok on char *s or str s and make char ***args have each element pointing to a separate token?
 
     token = strtok(s," "); // Use space as the delimiter?
-    
-    while( token != NULL ) {
-      printf( " %s\n", token ); // Step through the tokens? -> (https://www.tutorialspoint.com/c_standard_library/c_function_strtok.htm)
-    
-      token = strtok(NULL, " "); // Understand this
-    }
-   
 
+    //**args = malloc(3 * sizeof(char *));
+    
+    int tokenCount = 0;
+    while( token != NULL ) {
+     
+        printf( " %s\n", token ); // Step through the tokens? -> (https://www.tutorialspoint.com/c_standard_library/c_function_strtok.htm)
+    
+        token = strtok(NULL, " "); // Understand this
+        //char *newWords = malloc(strlen(token) + 1);
+        //*args[tokenCount] = token;
+
+        tokenCount++;
+    }
+
+        //args[tokenCount] = "\0";
 
 
     return 1;
