@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include "funs.h"
 #include <string.h>
-
+#include <stdlib.h>
 
 
 int getTokens(char *s, char ***args);
