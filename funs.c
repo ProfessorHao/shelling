@@ -18,30 +18,49 @@
 #include "funs.h"
 
 
+
+// |||| NOTE: We need to null terminate the args?    We also need to allocate room for each word in the args array too!        ||||
+
 int getTokens(char *s, char ***args)
 {
     char *token;
     //Use strtok on char *s or str s and make char ***args have each element pointing to a separate token?
+    char *tempString = strdup(s);;
+        
 
     token = strtok(s," "); // Use space as the delimiter?
-
-    //**args = malloc(3 * sizeof(char *));
     
-    int tokenCount = 0;
+    
+
+    int tokenCount = countWords(tempString);
+  
+    *args =  malloc((tokenCount + 1) * sizeof(char*)); // or args = or **args = 
+
     while( token != NULL ) {
-     
         printf( " %s\n", token ); // Step through the tokens? -> (https://www.tutorialspoint.com/c_standard_library/c_function_strtok.htm)
-    
-        token = strtok(NULL, " "); // Understand this
-        //char *newWords = malloc(strlen(token) + 1);
-        //*args[tokenCount] = token;
+        token = strtok(NULL, " "); 
+        }
 
-        tokenCount++;
-    }
 
         //args[tokenCount] = "\0";
 
+    return tokenCount;
+}
 
-    return 1;
+// Temporary (Don't use!)
+int countWords(const char *s) {
+    int count = 0;
+    int inWord = 0;
 
+    for (int i = 0; s[i] != '\0'; i++) {
+        if (s[i] != ' ') {
+            if (!inWord) {
+                count++;
+                inWord = 1;
+            }
+        } else {
+            inWord = 0;
+        }
+    }
+    return count;
 }
