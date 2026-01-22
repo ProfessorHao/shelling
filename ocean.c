@@ -48,8 +48,18 @@ int main()
         char *stringy = buffed;
         printf("We found the buffed string = %s\n",stringy);
         
-        char **arrayOfTokens, str[] = "ls -l file";
-        int numberOfTokens = getTokens(str, &arrayOfTokens);
+
+        // Parse through buffed using " " (space) as a delimiter
+
+        // char **arrayOfTokens;
+        // while(buffed[i] != "\0")
+        // {
+
+
+        // }
+        
+        char **arrayOfTokens; 
+        int numberOfTokens = getTokens(buffed, &arrayOfTokens);
 
         if(strcmp(buffed,keys[0]) == 0)
         {
