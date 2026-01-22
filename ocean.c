@@ -60,7 +60,7 @@ int main()
         
         char **arrayOfTokens; 
         int numberOfTokens = getTokens(buffed, &arrayOfTokens);
-
+        printf("The number of tokens = %d\n",numberOfTokens);
         if(strcmp(buffed,keys[0]) == 0)
         {
             printf("exit - Exit Shell\n");
@@ -75,7 +75,6 @@ int main()
         else if(strcmp(buffed,keys[1]) == 0)
         { 
             exit(0); // Is there a cleaner method than this?
-
 
         }       
         
