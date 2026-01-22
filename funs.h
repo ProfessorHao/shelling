@@ -8,7 +8,7 @@
 
 
 int getTokens(char *s, char ***args);
-
+int countWords(const char *s);
 
 
 
