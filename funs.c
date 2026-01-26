@@ -34,13 +34,28 @@ int getTokens(char *s, char ***args)
 
     int tokenCount = countWords(tempString);
   
-    *args =  malloc((tokenCount + 1) * sizeof(char*)); // or args = or **args = 
-
+    *args =  malloc((tokenCount + 1) * sizeof(char*)); // or args = or **args = // This allocates for slots for each word?
+    int iterate = 0;
     while( token != NULL ) {
-        printf( " %s\n", token ); // Step through the tokens? -> (https://www.tutorialspoint.com/c_standard_library/c_function_strtok.htm)
+        //printf( " %s\n", token ); // Step through the tokens? -> (https://www.tutorialspoint.com/c_standard_library/c_function_strtok.htm)
+        args[iterate] = malloc((strlen(token) + 1) * sizeof(char)); //This allocates for each word?
+        *args[iterate] = token;
+        //printf("Argument #%i is = %s\n",iterate , *args[iterate]);
         token = strtok(NULL, " "); 
+        iterate++;
         }
 
+        (*args)[iterate] = NULL;
+
+        /*
+        for(int i = 0; i < (tokenCount); i++){
+                
+            printf("Argument #%i is = %s\n", i , *args[i]);
+            if(i == tokenCount - 1)
+                printf("argument #%p\n",args[5]);
+
+        }      */ 
+        //printf("The final token is = : %s\n",token); // Null token
 
         //args[tokenCount] = "\0";
 
@@ -62,5 +77,5 @@ int countWords(const char *s) {
             inWord = 0;
         }
     }
-    return count;
+    return count; // + 1 for the null token
 }
