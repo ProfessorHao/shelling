@@ -31,7 +31,7 @@ int getTokens(char *s, char ***args)
     token = strtok(s," "); // Use space as the delimiter?
     
     
-
+    // C
     int tokenCount = countWords(tempString);
   
     *args =  malloc((tokenCount + 1) * sizeof(char*)); // or args = or **args = // This allocates for slots for each word?
